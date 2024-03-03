@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            border: 1px solid black;
+        }
+
+        .daytime {
+            background-color: lightgray;
+        }
+
+        th {
+            text-transform: uppercase;
+        }
+
+        .data {
+            background-color: rgb(240, 238, 238);
+        }
+    </style>
+</head>
+
+<body>
+
+    <table>
+        <colgroup>
+            <col>
+            <col span="2" class="data">
+        </colgroup>
+        <thead>
+            <tr>
+                <td></td>
+                <th scope="col">Namn</th>
+                <th scope="col">Address</th>
+                <th scope="col">Ansvarig</th>
+            </tr>
+        </thead>
+        <tbody class="daytime">
+            <tr>
+                <th scope="row" rowspan="2">Dagtid</th>
+                <td>Nisse</td>
+                <td>Hemvägen 2</td>
+                <td>X</td>
+            </tr>
+            <tr>
+                <td>Lasse</td>
+                <td>Gårdsgatan 12A</td>
+                <td></td>
+            </tr>
+        </tbody>
+        <tbody>
+            <tr>
+                <th scope="row" rowspan="2">Nattid</th>
+                <td>Ella</td>
+                <td>Stället 3</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Claes</td>
+                <td>Väggvägen 123</td>
+                <td>X</td>
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+
+</html>
