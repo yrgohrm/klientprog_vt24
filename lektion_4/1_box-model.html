@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <title>box model</title>
+    <style>
+        .outer {
+            background-color: red;
+            width: 300px;
+        }
+
+        .container {
+            background-color: green;
+            border: 4px solid black;
+            margin: 2rem;
+            padding: 2rem;
+        }
+
+        .content {
+            background-color: lightskyblue;            
+        }
+
+        body {
+            margin: 0;
+        }
+        
+        .foo {
+            background-color: bisque;
+            border: 3px solid red;
+            margin: 30px;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="outer">
+        <div class="container">
+            <div class="content">
+                Innehåll
+            </div>
+        </div>
+    </div>
+
+
+    <div class="foo">Innehåll 2</div>
+    <div class="foo">Innehåll 3</div>
+</body>
+</html>

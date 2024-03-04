@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+    <style>
+        #hello {
+            display: none;
+        }
+
+        body:has(input:checked) #hello {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <input type="checkbox">
+
+    <div id="hello">Hello World!!!!</div>
+    
+</body>
+</html>
