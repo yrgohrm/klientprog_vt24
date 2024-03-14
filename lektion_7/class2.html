@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="output.js"></script>
+</head>
+
+<body>
+    <script>
+        function Car(name, year) {
+            this.name = name;
+            this.year = year;
+            this.printInfo = function () {
+                output(this.name)
+                output(this.year)
+            }
+        }
+        let car = new Car('Lada Vesta', 2020)
+        car.printInfo()
+
+        let car2 = new Car('Volvo XC40', 2024)
+        car2.printInfo()
+
+
+        function foo(x) {
+            console.log(x.name)
+            console.log(x.value * 4)
+        }
+    </script>
+</body>
+
+</html>

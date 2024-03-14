@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        let time = null
+
+        function myLittleCallback() {
+            const currentTime = new Date()
+            console.log("Apple Jack likes apples")
+            console.log(currentTime.getTime() - time.getTime())
+            time = currentTime
+        }
+
+        time = new Date()
+        setInterval(myLittleCallback, 3000)
+        console.log("the script is running...")
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
