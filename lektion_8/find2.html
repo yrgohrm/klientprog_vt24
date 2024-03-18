@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <p id="foo">apapapapapa</p>
+    <p>apapapapapa</p>
+    <p class="blue">apapapapapa</p>
+    <p>apapapapapa</p>
+    <p class="blue funny">apapapapapa</p>
+    <p>apapapapapa</p>
+    <p>apapapapapa</p>
+    <p>hejsan</p>
+    <p>apapapapapa</p>
+    <p>apapapapapa</p>
+    <div class="stuff blue">en div</div>
+
+    <article>
+        <h2>Grej</h2>
+        <p>sak</p>
+        <p>sak</p>
+        <p>sak</p>
+    </article>
+
+    <article id="art2">
+        <h2>Foo</h2>
+        <p>bar</p>
+        <p>bar</p>
+        <p>bar</p>
+    </article>
+
+    <div>
+        hejsan
+        <p>hallå</p>
+        hoppsan
+    </div>
+
+
+
+    <script>
+        const p = document.getElementById("foo")
+        // p.style.display = "none"
+        p.innerText = "Hallåååååå"
+
+        const blueStuff = document.getElementsByClassName("blue")
+        console.log(blueStuff)
+
+        const thing = document.querySelector(".blue.funny")
+        console.log(thing)
+
+
+        const art2 = document.getElementById("art2")
+        const artPs = art2.getElementsByTagName("p")
+        console.log(artPs)
+        
+    </script>
+</body>
+</html>
