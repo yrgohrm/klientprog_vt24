@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <a href="https://gnu.org" title="GNUUUU">gnu.org</a>
+
+    <div id="foo">
+        <p>a</p>
+        <p>b</p>
+        <p>c</p>
+    </div>
+
+    <div id="bar">
+        <p>x</p>
+        <p>y</p>
+        <p>z</p>
+    </div>
+    
+
+    <script>
+
+        const bar = document.getElementById("bar")
+        const ps = bar.getElementsByTagName("p")
+
+        Array.from(ps).forEach(element => {
+            element.innerText = "hejsan"
+        });
+
+        const firstLink = document.querySelector("a")
+        document.body.append(firstLink.href)
+        document.body.append(firstLink.title)
+
+    </script>
+</body>
+</html>

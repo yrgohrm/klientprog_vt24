@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="button" id="thebutton" value="Klicka mig">
+    <input type="button" id="otherbutton" value="Klicka mig">
+
+    <script>
+        let pause = false
+
+        function handleClick(event) {
+            if (pause) 
+                return
+            
+            let pelem = document.createElement('p')
+            pelem.innerText = "Hejsan"
+            document.body.append(pelem)
+        }
+
+        function doStuff() {
+            alert("Hello, world!")
+        }
+
+        const theButton = document.getElementById('thebutton')
+        theButton.addEventListener('click', handleClick)
+
+        const otherButton = document.getElementById('otherbutton')
+        otherButton.addEventListener('click', () => pause = !pause)
+
+    </script>
+</body>
+
+</html>
