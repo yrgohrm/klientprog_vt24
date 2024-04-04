@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*
+            Skapa ett anrop med hjälp av fetch och async/await till 
+            https://yrgo-web-services.netlify.app/echo
+
+            Skicka data med POST.
+
+            Skriv ut resultatet på consolen, men se till att hantera ev.
+            fel på ett bra sätt.
+         */
+
+         const data = { hello: "world" }
+
+         async function sendData() {
+            const resp = await fetch("https://yrgo-web-services.netlify.app/echo", {
+                method: "POST",
+                body: JSON.stringify(data)
+            })
+
+            if (!resp.ok) {
+                console.log("oops!")
+                return
+            }
+
+            const responseData = await resp.json()
+            console.log(responseData)
+         }
+
+         sendData()
+    </script>
+</body>
+
+</html>

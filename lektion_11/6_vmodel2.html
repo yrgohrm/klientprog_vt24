@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <form>
+            <input type="range" min="0" max="5" step="1" v-model="count">
+            <input type="checkbox" v-model="somecheckbox"><br>
+            {{somecheckbox}}<br>
+        </form>
+
+        <div v-if="somecheckbox">
+            <h2 v-for="c in Number(count)">Hurra!!!!!</h2>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/vue@3.4.21"
+        integrity="sha384-8CdW77YPqMZ3v22pThUIR22Qp1FB5oisZG2WE3OpE0l1fTHAIsdIwjQZFf/rmQ/B"
+        crossorigin="anonymous"></script>
+    <script>
+        const app = {
+            data() {
+                return {
+                    count: 0,
+                    somecheckbox: true,
+                }
+            }
+        }
+
+        Vue.createApp(app).mount("#app")
+    </script>
+</body>
+
+</html>
