@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        {{ count }}<br>
+        <input type="button" value="++" @click="increase" @mouseover="showTooltip">
+
+        <div v-if="show">
+            klicka på knappen för att öka värdet
+        </div>
+    </div>
+    
+    <script src="https://unpkg.com/vue@3.4.21"
+        integrity="sha384-8CdW77YPqMZ3v22pThUIR22Qp1FB5oisZG2WE3OpE0l1fTHAIsdIwjQZFf/rmQ/B"
+        crossorigin="anonymous"></script>
+    <script>
+
+        const app = {
+            data() {
+                return {
+                    count: 1,
+                    show: false,
+                }
+            },
+            methods: {
+                increase() {
+                    this.count++
+                },
+                showTooltip() {
+                    this.show = true
+                }
+            },
+        }
+    
+        Vue.createApp(app).mount("#app")
+    </script>
+</body>
+</html>

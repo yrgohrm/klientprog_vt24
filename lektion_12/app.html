@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        {{ count }}<br>
+        <input type="text" :value="count">
+
+        <div v-if="count > 5">
+            <h2>Hello, world!</h2>
+        </div>
+        <div v-else-if="count > 3">
+            <h2>Semi big</h2>
+        </div>
+        <div v-else>
+            <h2>Sooo small</h2>
+        </div>
+
+
+        <ul>
+            <li v-for="name of names">{{name}}</li>
+        </ul>
+    </div>
+    
+    <script src="https://unpkg.com/vue@3.4.21"
+        integrity="sha384-8CdW77YPqMZ3v22pThUIR22Qp1FB5oisZG2WE3OpE0l1fTHAIsdIwjQZFf/rmQ/B"
+        crossorigin="anonymous"></script>
+    <script>
+        const app = {
+            data() {
+                return {
+                    count: 1,
+                    names: ["Lena", "Bosse", "Nisse", "Leyla"],
+                }
+            },
+            mounted() {
+                // setInterval(() => this.count++, 2000)
+            }
+        }
+    
+        Vue.createApp(app).mount("#app")
+    </script>
+</body>
+</html>
