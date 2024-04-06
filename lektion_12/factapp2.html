@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+        }
+
+        #app {
+            width: 700px;
+
+            >div {
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+                margin-bottom: 1rem;
+            }
+
+            input[type=button] {
+                border-width: 0;
+                padding: 0.5rem;
+                margin: 1rem 0;
+                text-transform: uppercase;
+                background-color: hotpink;
+                font-weight: 700;
+                width: 100px;
+
+                &:hover {
+                    background-color: hsl(330, 100%, 81%);
+                }
+            }
+        }
+
+        #loading {
+            position: absolute;
+            inset: 0;
+            opacity: 0.8;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1;
+            background-color: gray;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="app">
+
+        <input type="button" value="New Fact" @click="addToList">
+
+        <div v-for="fact of facts">
+            <img :src="fact.url" alt="" width="100" height="100">
+            <p>{{fact.fact}}</p>
+        </div>
+
+    </div>
+
+    <script src="https://unpkg.com/vue@3.4.21"
+        integrity="sha384-8CdW77YPqMZ3v22pThUIR22Qp1FB5oisZG2WE3OpE0l1fTHAIsdIwjQZFf/rmQ/B"
+        crossorigin="anonymous"></script>
+    <script>
+        async function getRandomFact() {
+            const resp = await fetch("https://yrgo-web-services.netlify.app/animal-facts")
+            if (resp.ok) {
+                const data = await resp.json()
+                if (data.fact) {
+                    return data.fact
+                }
+            }
+
+            throw new Error("something went wrong")
+        }
+
+        const app = {
+            data() {
+                return {
+                    facts: [],
+                }
+            },
+            methods: { 
+                async addToList() { 
+                    const fact = await getRandomFact()
+
+                    this.facts.push( { fact, url: "loading.gif" } )
+
+                    // for Vue to pick up the change made later in the load function
+                    // we need to grab the reactive object, not the non-reactive object
+                    // we added to the list. Vue will alter the object we push to add
+                    // reactivity to it.
+                    const reactiveFacts = this.facts.at(-1)
+
+                    const imageUrl = `https://robohash.org/${encodeURIComponent(fact)}.png?set=set4&size=100x100`
+                    const image = new Image()
+
+                    image.addEventListener('load', () => {
+                        reactiveFacts.url = imageUrl
+                    })
+
+                    image.src = imageUrl                   
+                } 
+            },
+            created() {
+                this.addToList()
+            }
+        }
+
+        Vue.createApp(app).mount("#app")
+    </script>
+</body>
+
+</html>
