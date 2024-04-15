@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <tweet name="Jan Hansson" username="janneh12563">
+            <!-- Det som ligger här mellan kommer placeras in där vi har vårt slot-element -->
+            Jag gillar att dricka Corona.
+        </tweet>
+        <tweet name="Sophia Bodik" username="bodik1903">
+            <!-- Det som ligger här mellan kommer placeras in där vi har vårt slot-element -->
+            Alla borde spela lite piano.
+        </tweet>
+    </div>
+    
+    <script src="https://unpkg.com/vue@3.4.21"
+        integrity="sha384-8CdW77YPqMZ3v22pThUIR22Qp1FB5oisZG2WE3OpE0l1fTHAIsdIwjQZFf/rmQ/B"
+        crossorigin="anonymous"></script>
+    <script>
+        const vueApp = Vue.createApp({})
+    
+        vueApp.component('tweet', {
+            props: {
+                name: String,
+                username: String
+            },
+            template: `<div>
+                            <div>
+                              {{name}}<br>
+                              <small>@{{username}}</small>
+                            </div>
+                            <div>
+                              <slot></slot>
+                            </div>
+                        </div>`
+        })
+    
+        vueApp.mount("#app")
+    </script>
+</body>
+</html>
