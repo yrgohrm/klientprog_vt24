@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazing App</title>
+</head>
+
+<body>
+    <div id="bosse">
+        {{ count }}
+
+        <add-component></add-component>
+        <add-component></add-component>
+        <add-component></add-component>
+        <add-component></add-component>
+    </div>
+
+    <script src="https://unpkg.com/vue@3.4.21"
+        integrity="sha384-8CdW77YPqMZ3v22pThUIR22Qp1FB5oisZG2WE3OpE0l1fTHAIsdIwjQZFf/rmQ/B"
+        crossorigin="anonymous"></script>
+    <script>
+        const addComponent = {
+            data() {
+                return {
+                    num1: undefined,
+                    num2: undefined,
+                    numSum: undefined
+                }
+            },
+            methods: {
+                sum() {
+                    this.numSum = Number(this.num1) + Number(this.num2)
+                }
+            },
+            template: `<div>
+                           <input type="text" v-model="num1">
+                           +
+                           <input type="text" v-model="num2">
+                           <input type="button" value="Add" @click="sum">
+                           <p>{{numSum}}</p>
+                       </div>`
+        }
+
+        const app = {
+            data() {
+                return {
+                    count: 1
+                }
+            },
+            mounted() {
+                setInterval(() => this.count++, 5000)
+            }
+        }
+
+        const vueApp = Vue.createApp(app)
+
+        vueApp.component('add-component', addComponent)
+
+        vueApp.mount("#bosse")
+    </script>
+
+</body>
+
+</html>
