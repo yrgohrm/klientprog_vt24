@@ -1,0 +1,18 @@
+*, *::after, *::before {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    background-color: hotpink;
+    margin: 0;
+    padding: 0;
+}
+
+#app {
+    background-color: whitesmoke;
+    margin: auto;
+    max-width: 900px;
+    min-height: 100dvh;
+    padding: 1rem;
+}
